@@ -49,10 +49,6 @@ export default defineConfig({
 					label: 'Account & billing',
 					autogenerate: { directory: 'account-billing' },
 				},
-				{
-					label: 'Privacy & security',
-					autogenerate: { directory: 'privacy-security' },
-				},
 			],
 		}),
 	],
