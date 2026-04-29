@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <title>Fledge bird — filled with terracotta chest patch</title>
+  <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20Z" fill="#0D6A5E"/>
+  <ellipse cx="9.6" cy="14.1" rx="2" ry="1.5" fill="#C97A4E"/>
+  <path d="M20 7.2 L23.5 8.25 L20 9.3 Z" fill="#C97A4E"/>
+  <path d="M10 18v3" fill="none" stroke="#0D6A5E" stroke-width="2" stroke-linecap="round"/>
+  <path d="M14 17.75V21" fill="none" stroke="#0D6A5E" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="16" cy="7" r="0.9" fill="#FFFFFF"/>
+</svg>

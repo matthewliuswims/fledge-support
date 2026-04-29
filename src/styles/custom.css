@@ -1,0 +1,77 @@
+/*
+ * Fledge brand tokens, ported from fledge-practice-dashboard/src/index.css.
+ * The product uses oklch values; we mirror them here so the support hub reads
+ * as obviously the same brand. Variables are mapped onto Starlight's CSS
+ * custom-property contract.
+ *
+ * Palette:
+ *   - cream background  oklch(0.985 0.01 85)   (~#faf7f0)
+ *   - sidebar accent    oklch(0.95 0.03 190)   pale teal/forest
+ *   - clay accent       #C97A4E                terracotta breast patch
+ *   - primary teal      oklch(0.48 0.095 190)  forest/pine, the bird body
+ *   - heading serif     'Crimson Pro'
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+	/* Starlight accent — drive primary surfaces with the Fledge teal/forest. */
+	--sl-color-accent-low: oklch(0.95 0.03 190);
+	--sl-color-accent: oklch(0.48 0.095 190);
+	--sl-color-accent-high: oklch(0.32 0.08 190);
+
+	/* Light palette — cream-forward. Starlight reads these in light mode. */
+	--sl-color-white: oklch(0.21 0.02 250);
+	--sl-color-gray-1: oklch(0.32 0.02 250);
+	--sl-color-gray-2: oklch(0.48 0.015 250);
+	--sl-color-gray-3: oklch(0.6 0.012 250);
+	--sl-color-gray-4: oklch(0.78 0.012 85);
+	--sl-color-gray-5: oklch(0.91 0.012 85);
+	--sl-color-gray-6: oklch(0.955 0.012 85);
+	--sl-color-gray-7: oklch(0.97 0.01 85);
+	--sl-color-black: oklch(0.985 0.01 85);
+
+	/* Fonts. Body stays system-ui; headings get Crimson Pro to match. */
+	--sl-font: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--sl-font-system: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--sl-font-system-mono: ui-monospace, Consolas, monospace;
+}
+
+/* Force light theme — the product UI is a single light theme; the support
+ * site should match. Override Starlight's auto-dark-by-default behavior. */
+:root[data-theme='dark'] {
+	--sl-color-accent-low: oklch(0.32 0.08 190);
+	--sl-color-accent: oklch(0.58 0.08 190);
+	--sl-color-accent-high: oklch(0.95 0.03 190);
+}
+
+/* Headings get the display serif. */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+h1.hero-title,
+h1[id],
+h2[id],
+h3[id] {
+	font-family: 'Crimson Pro', ui-serif, Georgia, serif;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+/* Splash page tweaks for the homepage. */
+.hero h1 {
+	font-family: 'Crimson Pro', ui-serif, Georgia, serif;
+	font-weight: 600;
+}
+
+/* Subtle warm tint on the page background to match the cream feel. */
+body {
+	background-color: oklch(0.985 0.01 85);
+}
+
+/* Clay accent for selection — a small touch that unifies the brand. */
+::selection {
+	background-color: #C97A4E;
+	color: #ffffff;
+}

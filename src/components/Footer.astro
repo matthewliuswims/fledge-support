@@ -1,0 +1,106 @@
+---
+/**
+ * Custom Starlight footer override.
+ *
+ * Three columns + a copyright strip at the bottom. Linked to:
+ *   - the app sign-in
+ *   - marketing pricing + about
+ *   - terms / privacy / BAA on the marketing site
+ *   - the support search and the contact email
+ *
+ * Status page is intentionally a "coming soon" hint per support-hub.md
+ * follow-ups, not a live link.
+ */
+const year = new Date().getFullYear();
+---
+
+<footer class="fledge-footer">
+	<div class="fledge-footer__cols">
+		<section>
+			<h2>Product</h2>
+			<ul>
+				<li><a href="https://app.fledgepractice.com/login">App sign-in</a></li>
+				<li><a href="https://fledgepractice.com/pricing">Pricing</a></li>
+				<li><span class="muted">Status — coming soon</span></li>
+			</ul>
+		</section>
+		<section>
+			<h2>Company</h2>
+			<ul>
+				<li><a href="https://fledgepractice.com/about">About</a></li>
+				<li><a href="https://fledgepractice.com/terms">Terms</a></li>
+				<li><a href="https://fledgepractice.com/privacy">Privacy</a></li>
+				<li><a href="/privacy-security/baa-and-hipaa/">BAA</a></li>
+			</ul>
+		</section>
+		<section>
+			<h2>Help</h2>
+			<ul>
+				<li><a href="/">Search the docs</a></li>
+				<li><a href="mailto:admin@fledgepractice.com">admin@fledgepractice.com</a></li>
+			</ul>
+		</section>
+	</div>
+	<div class="fledge-footer__strip">
+		<span>© {year} Fledge Practice, Inc.</span>
+	</div>
+</footer>
+
+<style>
+	.fledge-footer {
+		margin-top: 4rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--sl-color-gray-5);
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+
+	.fledge-footer__cols {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 2rem;
+		padding-bottom: 1.5rem;
+	}
+
+	@media (max-width: 50rem) {
+		.fledge-footer__cols {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.fledge-footer h2 {
+		font-family: 'Crimson Pro', ui-serif, Georgia, serif;
+		font-size: 1rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem 0;
+		color: var(--sl-color-white);
+	}
+
+	.fledge-footer ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.fledge-footer a {
+		color: var(--sl-color-accent-high);
+		text-decoration: none;
+	}
+
+	.fledge-footer a:hover {
+		text-decoration: underline;
+	}
+
+	.fledge-footer .muted {
+		color: var(--sl-color-gray-3);
+	}
+
+	.fledge-footer__strip {
+		padding: 1rem 0 1.5rem 0;
+		border-top: 1px solid var(--sl-color-gray-6);
+		color: var(--sl-color-gray-3);
+	}
+</style>

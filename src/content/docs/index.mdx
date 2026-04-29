@@ -1,0 +1,74 @@
+---
+title: How can we help?
+description: Help and how-tos for Fledge Practice — the practice-management tool for speech-language pathologists.
+template: splash
+hero:
+  tagline: Search the support center, browse a category, or email us at admin@fledgepractice.com.
+  actions:
+    - text: Search the docs
+      link: '#_top'
+      icon: magnifier
+      variant: primary
+    - text: Email support
+      link: mailto:admin@fledgepractice.com
+      icon: email
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Browse by category
+
+<CardGrid>
+  <LinkCard
+    title="Getting started"
+    description="Sign up, first login, what each sidebar item does."
+    href="/getting-started/welcome/"
+  />
+  <LinkCard
+    title="Clients"
+    description="Adding a client, intake, editing details, archiving."
+    href="/clients/adding-a-client/"
+  />
+  <LinkCard
+    title="Sessions & notes"
+    description="Scheduling, running a session, writing notes."
+    href="/sessions-notes/scheduling/"
+  />
+  <LinkCard
+    title="Invoices & payments"
+    description="Issuing an invoice, getting paid, refunds."
+    href="/invoices-payments/issuing-an-invoice/"
+  />
+  <LinkCard
+    title="Account & billing"
+    description="Profile, plan, two-factor, deactivation."
+    href="/account-billing/profile/"
+  />
+  <LinkCard
+    title="Privacy & security"
+    description="What data Fledge stores, where it lives, BAA, HIPAA boundary."
+    href="/privacy-security/what-we-store/"
+  />
+</CardGrid>
+
+## Popular articles
+
+<CardGrid>
+  <LinkCard
+    title="Adding your first client"
+    href="/clients/adding-a-client/"
+  />
+  <LinkCard
+    title="Issuing an invoice"
+    href="/invoices-payments/issuing-an-invoice/"
+  />
+  <LinkCard
+    title="What data Fledge stores"
+    href="/privacy-security/what-we-store/"
+  />
+</CardGrid>
+
+## Still stuck?
+
+Email <a href="mailto:admin@fledgepractice.com">admin@fledgepractice.com</a> and a real human will get back to you. Please don't include client names, dates of birth, or session content in support emails — describe the problem in general terms and we'll take it from there.
