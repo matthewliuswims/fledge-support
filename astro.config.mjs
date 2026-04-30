@@ -5,6 +5,13 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://support.fledgepractice.com',
+	// Pin unique ports so this repo can run alongside the other Fledge repos
+	// (dashboard SPA 3200 / preview 3201 / lambda 4000, marketing 3002,
+	// notes 3100). Astro's default 4321 is fine in isolation but conflicts
+	// the moment two of these are open at once. Preview port is set via
+	// the `--port` flag in package.json (Astro 6 has no `preview.port`
+	// field in the user-config type).
+	server: { port: 3300, host: 'localhost' },
 	integrations: [
 		starlight({
 			title: 'Fledge Support',

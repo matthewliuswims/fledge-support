@@ -70,6 +70,18 @@ body {
 	background-color: oklch(0.985 0.01 85);
 }
 
+/* No-ToC layout fix. With the right rail suppressed (our default — see
+ * astro.config.mjs), Starlight stretches .main-pane to 100% and the
+ * default `margin-inline: auto` on .sl-container floats a short article
+ * in the middle of the empty area, which reads as "broken layout"
+ * rather than "no ToC." Pin the article to the inline-start of the pane
+ * so it sits next to the left sidebar regardless of viewport width. */
+@media (min-width: 72rem) {
+	[data-has-sidebar]:not([data-has-toc]) .sl-container {
+		margin-inline: 0 auto;
+	}
+}
+
 /* Clay accent for selection — a small touch that unifies the brand. */
 ::selection {
 	background-color: #C97A4E;
