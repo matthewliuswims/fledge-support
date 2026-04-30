@@ -75,3 +75,52 @@ body {
 	background-color: #C97A4E;
 	color: #ffffff;
 }
+
+/* ---------- Home hero (rendered inline in index.mdx, since the page now
+ * uses the default doc template so the sidebar persists from the home). */
+.fledge-hero-tagline {
+	font-size: clamp(var(--sl-text-base), calc(0.0625rem + 0.5vw), var(--sl-text-lg));
+	color: var(--sl-color-gray-2);
+	max-width: 36rem;
+	margin: 0.25rem 0 1.25rem;
+}
+
+.fledge-hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-bottom: 2.5rem;
+}
+
+.fledge-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.6rem 1.1rem;
+	border-radius: 999px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	border: 1px solid transparent;
+	text-decoration: none;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.fledge-btn-primary {
+	background: var(--sl-color-accent);
+	color: #ffffff;
+}
+.fledge-btn-primary:hover {
+	background: var(--sl-color-accent-high);
+	color: #ffffff;
+}
+
+.fledge-btn-ghost {
+	color: var(--sl-color-white);
+	background: transparent;
+	border-color: var(--sl-color-gray-5);
+}
+.fledge-btn-ghost:hover {
+	background: var(--sl-color-gray-7);
+	color: var(--sl-color-white);
+}

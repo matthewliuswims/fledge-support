@@ -18,9 +18,15 @@ export default defineConfig({
 			},
 			customCss: ['./src/styles/custom.css'],
 			components: {
-				// Custom footer with three columns + bottom copyright strip.
+				// Flat single-line footer (copyright + a few links).
 				Footer: './src/components/Footer.astro',
+				// Page title with a Home › Category › Article breadcrumb above it.
+				PageTitle: './src/components/PageTitle.astro',
 			},
+			// Default the right-hand "On this page" rail off — most articles are
+			// short and the rail just shows a lone "Overview" entry. Articles with
+			// real structure (3+ headings) opt back in via frontmatter.
+			tableOfContents: false,
 			social: [
 				{
 					icon: 'external',

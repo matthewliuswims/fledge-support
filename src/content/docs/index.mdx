@@ -1,67 +1,69 @@
 ---
 title: How can we help?
 description: Help and how-tos for Fledge Practice — the practice-management tool for speech-language pathologists.
-template: splash
-hero:
-  tagline: Use the search at the top, browse a category below, or email us at admin@fledgepractice.com.
-  actions:
-    - text: Browse categories
-      link: '#browse-by-category'
-      icon: right-arrow
-      variant: primary
-    - text: Email support
-      link: mailto:admin@fledgepractice.com
-      icon: email
-      variant: minimal
+pagefind: true
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<p class="fledge-hero-tagline">
+	Use the search at the top, browse a category below, or email us at <a href="mailto:admin@fledgepractice.com">admin@fledgepractice.com</a>.
+</p>
+
+<div class="fledge-hero-actions not-content">
+	<a class="fledge-btn fledge-btn-primary" href="#browse-by-category">
+		Browse categories <span aria-hidden="true">→</span>
+	</a>
+	<a class="fledge-btn fledge-btn-ghost" href="mailto:admin@fledgepractice.com">
+		Email support <span aria-hidden="true">✉</span>
+	</a>
+</div>
 
 ## Browse by category
 
 <CardGrid>
-  <LinkCard
-    title="Getting started"
-    description="Sign up, first login, what each sidebar item does."
-    href="/getting-started/welcome/"
-  />
-  <LinkCard
-    title="Clients"
-    description="Adding a client, intake, editing details, archiving."
-    href="/clients/adding-a-client/"
-  />
-  <LinkCard
-    title="Sessions & notes"
-    description="Scheduling, running a session, writing notes."
-    href="/sessions-notes/scheduling/"
-  />
-  <LinkCard
-    title="Invoices & payments"
-    description="Issuing an invoice, getting paid, refunds."
-    href="/invoices-payments/issuing-an-invoice/"
-  />
-  <LinkCard
-    title="Account & billing"
-    description="Profile, plan, two-factor, deactivation."
-    href="/account-billing/profile/"
-  />
+	<LinkCard
+		title="Getting started"
+		description="Sign up, first login, what each sidebar item does."
+		href="/getting-started/welcome/"
+	/>
+	<LinkCard
+		title="Clients"
+		description="Adding a client, intake, editing details, archiving."
+		href="/clients/adding-a-client/"
+	/>
+	<LinkCard
+		title="Sessions & notes"
+		description="Scheduling, running a session, writing notes."
+		href="/sessions-notes/scheduling/"
+	/>
+	<LinkCard
+		title="Invoices & payments"
+		description="Issuing an invoice, getting paid, refunds."
+		href="/invoices-payments/issuing-an-invoice/"
+	/>
+	<LinkCard
+		title="Account & billing"
+		description="Profile, plan, two-factor, deactivation."
+		href="/account-billing/profile/"
+	/>
 </CardGrid>
 
 ## Popular articles
 
 <CardGrid>
-  <LinkCard
-    title="Adding your first client"
-    href="/clients/adding-a-client/"
-  />
-  <LinkCard
-    title="Issuing an invoice"
-    href="/invoices-payments/issuing-an-invoice/"
-  />
-  <LinkCard
-    title="Turning on two-factor authentication"
-    href="/account-billing/two-factor/"
-  />
+	<LinkCard
+		title="Adding your first client"
+		href="/clients/adding-a-client/"
+	/>
+	<LinkCard
+		title="Issuing an invoice"
+		href="/invoices-payments/issuing-an-invoice/"
+	/>
+	<LinkCard
+		title="Turning on two-factor authentication"
+		href="/account-billing/two-factor/"
+	/>
 </CardGrid>
 
 ## Still stuck?
