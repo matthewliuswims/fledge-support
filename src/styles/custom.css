@@ -78,7 +78,13 @@ body {
  * so it sits next to the left sidebar regardless of viewport width. */
 @media (min-width: 72rem) {
 	[data-has-sidebar]:not([data-has-toc]) .sl-container {
-		margin-inline: 0 auto;
+		/* 4rem inline-start matches the visual gap a with-ToC page has
+		 * between the left sidebar and the article (Starlight's default
+		 * with-ToC math is content-pad-x + ((viewport - content - sidebar)/2)
+		 * which lands around the same place at typical desktop widths).
+		 * Without this the article sat flush against content-pad-x and read
+		 * as cramped against the sidebar. */
+		margin-inline: 4rem auto;
 	}
 }
 
