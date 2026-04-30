@@ -95,16 +95,28 @@ body {
 /* Sticky footer. By default the custom Footer renders directly under the
  * article, so on short pages it sits mid-viewport with cream below it.
  * Make .main-pane a flex column tall enough to fill the viewport, then
- * push the footer to the bottom with margin-top: auto so it always lives
- * at the bottom of the screen on short pages and just below the content
- * on long ones. */
+ * grow the *last* content-panel (the one holding the article body) to
+ * absorb the leftover space — that pushes the footer to the bottom of
+ * the viewport on short pages and leaves the footer immediately below
+ * content on long ones. We grow the content-panel rather than putting
+ * `margin-top: auto` on the footer because Footer.astro's scoped
+ * `margin-top: 4rem` has higher specificity than an unscoped rule and
+ * was winning the cascade. */
 .main-pane {
 	display: flex;
 	flex-direction: column;
 	min-height: calc(100vh - var(--sl-nav-height));
 }
-.fledge-footer {
-	margin-top: auto;
+.main-pane > .content-panel:last-of-type {
+	flex: 1;
+}
+
+/* Breathing room between a sidebar group label and its first nested
+ * item. Starlight only inserts ~0.5em of vertical space (summary's
+ * 0.2em padding plus the link's 0.3em padding), which reads as
+ * squished — the active-item pill sits right under the group title. */
+.sidebar-pane details > ul {
+	margin-top: 0.4rem;
 }
 
 /* Clay accent for selection — a small touch that unifies the brand. */
