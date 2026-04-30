@@ -107,8 +107,47 @@ body {
 	flex-direction: column;
 	min-height: calc(100vh - var(--sl-nav-height));
 }
-.main-pane > .content-panel:last-of-type {
+/* The footer is rendered DEEP inside the article container, not as a
+ * sibling of `.content-panel`:
+ *   .main-pane
+ *     <main>
+ *       .content-panel (title)
+ *       .content-panel (article)
+ *         .sl-container
+ *           .sl-markdown-content
+ *           <footer.fledge-footer>      ← here
+ * To pin the footer to the bottom of the viewport on short pages we
+ * have to cascade the flex-column + flex:1 down through every
+ * ancestor in that chain so the deepest container actually has the
+ * vertical slack to absorb. Then `margin-top: auto` on the footer
+ * pushes it to the bottom of `.sl-container`. */
+.main-pane > main,
+.main-pane > main > .content-panel:last-of-type,
+.main-pane > main > .content-panel:last-of-type > .sl-container {
+	display: flex;
+	flex-direction: column;
 	flex: 1;
+}
+/* `!important` overrides Footer.astro's scoped `margin-top: 4rem`
+ * (Astro scoped CSS gets `.fledge-footer.astro-XXXX` specificity which
+ * beats an unscoped `.fledge-footer` rule). On short pages this makes
+ * the footer stick to the viewport bottom; on long pages it resolves
+ * to 0 and the border-top + footer padding still provide visual
+ * separation from the article above. */
+.fledge-footer {
+	margin-top: auto !important;
+}
+/* Zero the bottom padding on the chain between the footer and main-pane
+ * bottom so the footer truly lands flush with the viewport's bottom edge
+ * on short pages. (Without this there's ~50px of cream below the footer
+ * — 24px from `.content-panel`'s default 1.5rem block padding plus
+ * ~26px from `<main>` itself.) The footer's own border-top + padding
+ * still provide the visual separation from the article above. */
+.main-pane > main {
+	padding-bottom: 0;
+}
+.main-pane > main > .content-panel:last-of-type {
+	padding-bottom: 0;
 }
 
 /* Breathing room between a sidebar group label and its first nested
