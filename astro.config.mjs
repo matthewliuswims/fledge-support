@@ -30,10 +30,13 @@ export default defineConfig({
 				// Page title with a Home › Category › Article breadcrumb above it.
 				PageTitle: './src/components/PageTitle.astro',
 			},
-			// Default the right-hand "On this page" rail off — most articles are
-			// short and the rail just shows a lone "Overview" entry. Articles with
-			// real structure (3+ headings) opt back in via frontmatter.
-			tableOfContents: false,
+			// Right-hand "On this page" rail on by default. The route middleware
+			// at ./src/routeData.ts then suppresses it when the page has fewer
+			// than 2 ToC entries (i.e. the ToC would only contain the implicit
+			// "Overview" link and no real H2/H3 anchors), so short articles
+			// stay rail-free without per-article frontmatter.
+			tableOfContents: true,
+			routeMiddleware: ['./src/routeData.ts'],
 			social: [
 				{
 					icon: 'external',
