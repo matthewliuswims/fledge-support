@@ -70,6 +70,42 @@ body {
 	background-color: oklch(0.985 0.01 85);
 }
 
+/* Lock article position across pages with and without the right rail.
+ * Starlight's TwoColumnContent only narrows .main-pane and right-pins
+ * .sl-container when both [data-has-sidebar] and [data-has-toc] are
+ * present. On no-ToC pages it stretches .main-pane to 100% and centers
+ * .sl-container, which shifts the article ~half-a-sidebar-width to the
+ * right of where it sits on with-ToC pages — so flipping between an
+ * article that has a rail and one that doesn't makes the column appear
+ * to jump. Mirror the with-ToC math here so the column lands at the
+ * exact same x-position whether the rail is rendered or not, and the
+ * empty space simply lives where the rail would have been. */
+@media (min-width: 72rem) {
+	[data-has-sidebar]:not([data-has-toc]) .main-pane {
+		width: calc(
+			var(--sl-content-width) +
+				(100% - var(--sl-content-width) - var(--sl-sidebar-width)) / 2
+		);
+	}
+	[data-has-sidebar]:not([data-has-toc]) .sl-container {
+		margin-inline: auto 0;
+	}
+}
+
+/* Sticky footer. By default the custom Footer renders directly under the
+ * article, so on short pages it sits mid-viewport with cream below it.
+ * Make .main-pane a flex column tall enough to fill the viewport, then
+ * push the footer to the bottom with margin-top: auto so it always lives
+ * at the bottom of the screen on short pages and just below the content
+ * on long ones. */
+.main-pane {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - var(--sl-nav-height));
+}
+.fledge-footer {
+	margin-top: auto;
+}
 
 /* Clay accent for selection — a small touch that unifies the brand. */
 ::selection {
