@@ -11,7 +11,11 @@ export default defineConfig({
 	// the moment two of these are open at once. Preview port is set via
 	// the `--port` flag in package.json (Astro 6 has no `preview.port`
 	// field in the user-config type).
-	server: { port: 3300, host: 'localhost' },
+	// `host: true` listens on both IPv4 and IPv6 (and the LAN IP) so the
+	// Claude-in-Chrome MCP context — which can't always reach `localhost`
+	// loopback from automated tabs — has a LAN-IP fallback. The user's
+	// main Chrome keeps using `localhost` either way.
+	server: { port: 3300, host: true },
 	integrations: [
 		starlight({
 			title: 'Fledge Support',

@@ -4,6 +4,18 @@ Guidance for Claude when working in this repo.
 
 This is a static Astro/Starlight content site — no auth, no PHI, no backend. Most work here is editing MDX articles and tweaking sidebar config. See `README.md` for the stack details and local dev commands.
 
+## Cross-repo context
+
+Fledge has five repos, all at `~/Desktop/`:
+
+- `fledge-support` (this repo) — public support hub at `support.fledgepractice.com`. Content-only, no PHI.
+- `fledge-practice` — marketing site (Next.js on Vercel, apex `fledgepractice.com`).
+- `fledge-practice-dashboard` — HIPAA-covered product (Vite SPA + Lambda + DynamoDB on AWS, `app.fledgepractice.com`). All PHI lives here.
+- `notes-for-fledge-practice` — private research and citations. Source of truth for factual claims; never merged into product or content repos.
+- `fledge-ops` — operational scripts and infra notes. Internal, lower-traffic.
+
+Questions about product behavior, marketing copy, or factual sourcing may need one of the siblings.
+
 ## Browser-extension debugging — surface to Matthew, don't loop
 
 If you're driving the Claude in Chrome extension (e.g. screenshotting the live site, or any logged-in SaaS surface that needs Matthew's session) and hit either of these failure shapes, **stop and tell Matthew** instead of retrying. The extension wedges in ways that look transient but aren't.
@@ -14,3 +26,5 @@ If you're driving the Claude in Chrome extension (e.g. screenshotting the live s
 **Litmus test before assuming it's working.** Matthew should be able to see the Claude extension panel docked on the right side of his Chrome window. If the panel isn't visible, the extension isn't in a state Claude can drive — full stop, regardless of what `tabs_context_mcp` says.
 
 **The fix when failure shape #2 recurs.** Don't loop, don't try N+1 input strategies. Tell Matthew: *(a)* Cmd+Q the browser entirely, *(b)* relaunch Chrome, *(c)* manually open the Claude extension so the panel is visible on the right, *(d)* tell Claude to retry. After a fresh launch, computer actions reliably take. Per the "Avoid rabbit holes and loops" rule, surface this guidance after 2–3 failed attempts — don't burn turns trying to type into a wedged tab.
+
+**Localhost-specific failure (third shape).** If the MCP tab returns `chrome-error://chromewebdata/` with `ERR_CONNECTION_REFUSED` for `http://localhost:<port>/` while `curl` and the user's main Chrome reach it fine, the extension is silently aborting loopback navigations from automated tabs (confirmed 2026-04-30 in the dashboard repo). Don't loop. Switch the MCP `navigate` URL to the LAN IP: `ipconfig getifaddr en0` → `http://<that-ip>:<port>/`. Dev servers usually bind dual-stack, so they serve both.
