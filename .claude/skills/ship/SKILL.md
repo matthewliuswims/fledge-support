@@ -26,7 +26,7 @@ You are the DRI for this ship. The sub-agent review is a second pair of eyes, no
 Use the `Agent` tool with `subagent_type: "general-purpose"`. Keep the prompt tight:
 - Follow the heuristics in `.claude/skills/codereview/SKILL.md` and use that output format.
 - Target is **only the files you modified this session** — pass that explicit list to the sub-agent. Do not ask it to review the whole working tree, since other modified files may belong to a parallel agent or to in-progress human work. For each of your files, the sub-agent should read it in full and diff against HEAD with `git diff HEAD -- <path>`.
-- Read the README and the support-hub spec at `docs/future-phases/support-hub.md` in `fledge-practice-dashboard` for repo-specific constraints (no PHI, brand tokens, content-only).
+- Read the README and the support-hub spec at `docs/archives/support-hub.md` in `fledge-practice-dashboard` for repo-specific constraints (no PHI, brand tokens, content-only).
 - Flag only what matters for this change.
 
 After the sub-agent returns, triage the findings:
