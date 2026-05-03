@@ -21,7 +21,7 @@ Use judgment. Real debt looks like:
 - **Broken or stale internal links**: `href="/old-slug/"` after a folder was renamed, `mailto:` to an address we don't read anymore.
 - **Stale comments / TODOs** that reference work already done or contradict the current code.
 - **Type holes** in TypeScript or Astro components: `as any`, `!` non-null assertions, untyped props.
-- **Drift from the support-hub spec** at `docs/future-phases/support-hub.md` in the dashboard repo (or `docs/archives/` once it ships): e.g. a contact form added that should still be a `mailto:`, an analytics tracker added off-domain, brand tokens replaced with arbitrary hex.
+- **Drift from the support-hub spec** at `docs/archives/support-hub.md` in the dashboard repo: e.g. a contact form added that should still be a `mailto:`, an analytics tracker added off-domain, brand tokens replaced with arbitrary hex.
 - **Inconsistent patterns**: one article uses `<LinkCard>`, three still use raw markdown links to the same target — superseded pattern.
 
 What does **not** count (do not flag):
@@ -36,7 +36,7 @@ What does **not** count (do not flag):
 
 ### 1. Read the spec
 
-Read the README and `docs/future-phases/support-hub.md` (or `docs/archives/support-hub.md` if it's already shipped) in `~/Desktop/fledge-practice-dashboard` before scouting. Tech debt is defined relative to the support-hub spec, not generic best-practice.
+Read the README and `docs/archives/support-hub.md` in `~/Desktop/fledge-practice-dashboard` before scouting. Tech debt is defined relative to the support-hub spec, not generic best-practice.
 
 ### 2. Scout (sub-agent)
 
