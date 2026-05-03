@@ -11,7 +11,7 @@ Fledge has five repos, all at `~/Desktop/`:
 - `fledge-support` (this repo) — public support hub at `support.fledgepractice.com`. Content-only, no PHI.
 - `fledge-practice` — marketing site (Next.js on Vercel, apex `fledgepractice.com`).
 - `fledge-practice-dashboard` — HIPAA-covered product (Vite SPA + Lambda + DynamoDB on AWS, `app.fledgepractice.com`). All PHI lives here.
-- `notes-for-fledge-practice` — private research and citations. Source of truth for factual claims; never merged into product or content repos.
+- `fledge-practice-notes` — private research and citations. Source of truth for factual claims; never merged into product or content repos.
 - `fledge-ops` — operational scripts and infra notes. Internal, lower-traffic.
 
 Questions about product behavior, marketing copy, or factual sourcing may need one of the siblings.

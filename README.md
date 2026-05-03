@@ -69,4 +69,4 @@ The custom domain is configured in Vercel; the Route 53 record (`support.fledgep
 - [fledge-practice](https://github.com/matthewliuswims/fledge-practice) — public marketing site (`fledgepractice.com`).
 - [fledge-practice-dashboard](https://github.com/matthewliuswims/fledge-practice-dashboard) — the product (`app.fledgepractice.com`), HIPAA-covered.
 - [fledge-support](https://github.com/matthewliuswims/fledge-support) — this support hub (`support.fledgepractice.com`).
-- [notes-for-fledge-practice](https://github.com/matthewliuswims/notes-for-fledge-practice) — private research notes (source of truth for factual claims). _Private repo._
+- [fledge-practice-notes](https://github.com/matthewliuswims/fledge-practice-notes) — private research notes (source of truth for factual claims). _Private repo._
